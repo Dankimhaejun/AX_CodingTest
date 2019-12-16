@@ -1,12 +1,8 @@
 const openDoor = (doors, people) => {
   let doorsArr = new Array(doors + 1).fill(false);
-  console.log('doorsArr', doorsArr);
-  console.log('doorsArr.length', doorsArr.length);
-  console.log('people', people);
+
   for (let i = 1; i <= people; i++) {
     for (let j = i; j <= doors; j = j + i) {
-      console.log('j', j);
-      console.log('doorsArr[j]', doorsArr[j]);
       if (doorsArr[j] === true) {
         doorsArr[j] = false;
       } else {
@@ -15,9 +11,9 @@ const openDoor = (doors, people) => {
     }
   }
   console.log('doorsArr', doorsArr);
-  return doorsArr;
+  return doorsArr.filter(ele => ele === true).length;
 };
-console.log(openDoor(50, 1));
+console.log(openDoor(50, 2));
 // const openDoor = function(doors, people) {
 //   let doorsArr = new Array(doors + 1).fill(false);
 //   let person = 1;
